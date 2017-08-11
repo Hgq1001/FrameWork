@@ -31,25 +31,35 @@ export default class ThemeButton extends Component {
         textColor: PropTypes.color,
     };
 
+    /**
+     *
+     * */
+
     render() {
         return (
             <TouchableButton onPress={this.props.onPress ? this.props.onPress : () => {
             }}>
                 <View style={{flexDirection: 'row'}}>
-                    <Text style={[AppStyles.textNormalGray, {
+                    <View style={{
+                        alignItems:'center',
+                        justifyContent:'center',
+                        backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : AppConfig.COLOR_THEME,
+                        paddingVertical: AppConfig.DISTANCE_SAFE / 2,
+                        paddingHorizontal: AppConfig.DISTANCE_SAFE,
+                        flex: 1,
                         margin: AppConfig.DISTANCE_SAFE,
                         borderRadius: this.props.radius || this.props.radius == 0 ? this.props.radius : 5,
                         borderWidth: this.props.borderWidth ? this.props.borderWidth : 0,
                         borderColor: this.props.borderColor ? this.props.borderColor : AppConfig.COLOR_WHITE,
-                        flex: 1,
+                    }}>
+
+                        <Text style={[AppStyles.textNormalGray, {
                         color: this.props.textColor ? this.props.textColor : AppConfig.COLOR_WHITE,
-                        paddingVertical: AppConfig.DISTANCE_SAFE / 2,
-                        paddingHorizontal: AppConfig.DISTANCE_SAFE,
-                        backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : AppConfig.COLOR_THEME,
                         textAlign: 'center'
-                    }, this.props.style]}>
-                        {this.props.text}
-                    </Text>
+                        }, this.props.style]}>
+                            {this.props.text}
+                        </Text>
+                    </View>
                 </View>
             </TouchableButton>
         )

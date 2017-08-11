@@ -39,7 +39,11 @@ export default class TitleBar extends Component {
 
     render() {
         return (
-            <View style={{flexDirection: 'row'}}>
+            <View style={{
+                    flexDirection: 'row',
+                    backgroundColor:AppConfig.COLOR_THEME,
+                    paddingTop: Platform.OS === 'android' ? 0 : 20,
+                 }}>
                 <View
                     style={{
                         flex: 1,

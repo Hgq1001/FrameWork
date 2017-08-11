@@ -15,7 +15,9 @@ import Index from './app/Index';
 
 export default class FrameWork extends Component {
     render() {
-        <Index/>
+        return (
+            <Index/>
+        )
     }
 }
 

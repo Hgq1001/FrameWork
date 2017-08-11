@@ -1,5 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Animated, Dimensions} from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    Animated,
+    Dimensions,
+    Platform,
+    ProgressViewIOS,
+    ActivityIndicator
+} from "react-native";
 import {Actions} from "react-native-router-flux";
 import ProgressView from '../native/ProgressView';
 import * as AppConfig from '../config/AppConfig';
@@ -52,9 +61,18 @@ export default class LoadingModal extends React.Component {
                     padding: AppConfig.DISTANCE_SAFE,
                     backgroundColor: AppConfig.COLOR_BLACK,
                 }}>
+
                     <View style={{alignItems: 'center'}}>
-                        <ProgressView color={AppConfig.COLOR_WHITE}
-                                      style={{width: 30, height: 30}}/>
+                        {
+                            Platform.OS === 'android' ?
+                                <ProgressView color={AppConfig.COLOR_WHITE}
+                                              style={{width: 30, height: 30}}/>
+                                :
+                                <ActivityIndicator
+                                    size="small"
+                                    color={AppConfig.COLOR_WHITE}/>
+                        }
+
                         <Text style={
                             [AppStyles.textSmallGray,
                                 {
