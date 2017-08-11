@@ -41,8 +41,8 @@ export default class ThemeButton extends Component {
             }}>
                 <View style={{flexDirection: 'row'}}>
                     <View style={{
-                        alignItems:'center',
-                        justifyContent:'center',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         backgroundColor: this.props.backgroundColor ? this.props.backgroundColor : AppConfig.COLOR_THEME,
                         paddingVertical: AppConfig.DISTANCE_SAFE / 2,
                         paddingHorizontal: AppConfig.DISTANCE_SAFE,
@@ -54,8 +54,8 @@ export default class ThemeButton extends Component {
                     }}>
 
                         <Text style={[AppStyles.textNormalGray, {
-                        color: this.props.textColor ? this.props.textColor : AppConfig.COLOR_WHITE,
-                        textAlign: 'center'
+                            color: this.props.textColor ? this.props.textColor : AppConfig.COLOR_WHITE,
+                            textAlign: 'center'
                         }, this.props.style]}>
                             {this.props.text}
                         </Text>
