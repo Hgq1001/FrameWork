@@ -92,7 +92,9 @@ class PopContent extends Component {
                         return tipContent;
                     })()}
                 </View>
-                <View style={styles.line}></View>
+                <View style={{flexDirection: "row"}}>
+                    <View style={styles.line}/>
+                </View>
                 <View style={[styles.btnBox, btnNumber > 2 ? {flexDirection: 'column',} : {}]}>
                     {(() => {
                         let btnContent = [];
@@ -329,10 +331,11 @@ let styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         left: 0,
+        right: 0,
+        bottom: 0,
         justifyContent: 'center',
         alignItems: 'center',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        flex: 1,
         overflow: 'hidden',
         backgroundColor: 'rgba(00, 00, 00, 0)',
     },
@@ -340,8 +343,9 @@ let styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         left: 0,
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        right: 0,
+        bottom: 0,
+        flex: 1,
         backgroundColor: '#000',
         opacity: .6,
     },
@@ -349,7 +353,7 @@ let styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        width: Dimensions.get('window').width - 80,
+        marginHorizontal: 80,
         borderRadius: 8,
         overflow: 'hidden',
     },
@@ -360,7 +364,7 @@ let styles = StyleSheet.create({
         alignItems: 'center',
     },
     tipTitleBox: {
-        width: Dimensions.get('window').width - 80,
+        marginHorizontal: 80,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -385,11 +389,11 @@ let styles = StyleSheet.create({
     },
     line: {
         height: Platform.OS === 'ios' ? 1 : 0.5,
-        width: Dimensions.get('window').width - 80,
+        flex: 1,
         backgroundColor: AppConfig.COLOR_LINE,
     },
     btnBox: {
-        width: Dimensions.get('window').width - 80,
+        marginHorizontal: 80,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

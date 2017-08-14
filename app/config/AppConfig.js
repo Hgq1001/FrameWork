@@ -4,7 +4,6 @@
  * @E-Mail: 528489389@qq.com
  * @Describe: 定义一些基本的参数，如颜色，字体啊
  */
-
 //主题色定义
 export const COLOR_THEME = "#00B38A";
 //黑色，不是000000

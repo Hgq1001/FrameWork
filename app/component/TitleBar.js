@@ -10,7 +10,10 @@ import {
     Platform,
     Image,
     View,
+    ToastAndroid,
     TouchableOpacity,
+    PixelRatio,
+    NativeModules,
 } from 'react-native';
 import {
     Actions,
@@ -33,17 +36,24 @@ export default class TitleBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            barHeight: global.BARANDROIDHEIGHT / PixelRatio.get(),
             showBack: props.showBack == null ? true : props.showBack,
         };
+
+        if (global.BARANDROIDHEIGHT == -1) {
+            NativeModules.BarHeightModule.getHeight((height) => {
+                this.setState({barHeight: height / PixelRatio.get()});
+            });
+        }
     }
 
     render() {
         return (
             <View style={{
-                    flexDirection: 'row',
-                    backgroundColor:AppConfig.COLOR_THEME,
-                    paddingTop: Platform.OS === 'android' ? 0 : 20,
-                 }}>
+                flexDirection: 'row',
+                backgroundColor: AppConfig.COLOR_THEME,
+                paddingTop: Platform.OS === 'android' ? this.state.barHeight : 20,
+            }}>
                 <View
                     style={{
                         flex: 1,
